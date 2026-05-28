@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15.17-trixie
+    container_name: multipost-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=multipost
+      - POSTGRES_PASSWORD=multipost
+      - POSTGRES_DB=multipost
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
